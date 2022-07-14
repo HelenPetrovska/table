@@ -4,10 +4,12 @@ module.exports = {
     'plugin:react/recommended',
   ],
   rules: {
+    'linebreak-style': 0,
     // React
     'react/prop-types': 0,
     'react/self-closing-comp': 0,
     'react/display-name': 0,
+    'react/no-array-index-key': 0,
 
     // JavaScript
     semi: 0,
@@ -20,6 +22,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/ban-types': 0,
     '@typescript-eslint/semi': ['error'],
+    '@typescript-eslint/no-explicit-any': 0,
   },
   parser: '@typescript-eslint/parser',
   plugins: [
