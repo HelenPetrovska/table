@@ -7,6 +7,15 @@
   border-width: 0px;
 }
 
+.MuiBox-root.css-1l9ohcm {
+  width: 100%;
+  overflow-x: scroll;
+
+  @media (min-width: 800px) {
+    width: 800px;
+  }
+}
+
 .supportTable {
   display: flex;
   justify-content: center;

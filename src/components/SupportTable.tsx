@@ -76,7 +76,7 @@ export const SupportTable: React.FC<Props> = ({ toggleIsVisibleModal }) => {
     const newSupport = {
       id: support[support.length - 1].id + 1,
       num: numberData || '',
-      date,
+      date: date || now,
       user: userData || 'Roman',
       comment: commentData || 'any',
     };
@@ -97,7 +97,7 @@ export const SupportTable: React.FC<Props> = ({ toggleIsVisibleModal }) => {
       <div className="supportTable">
         <div className="supportTable__wrapper">
           <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <Table sx={{ minWidth: 300 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
                   <TableCell align="center">value</TableCell>
@@ -133,7 +133,6 @@ export const SupportTable: React.FC<Props> = ({ toggleIsVisibleModal }) => {
                       id="date"
                       label=""
                       type="date"
-                      defaultValue={now}
                       value={dateData}
                       onChange={handlerInputDate}
                     />
@@ -152,7 +151,7 @@ export const SupportTable: React.FC<Props> = ({ toggleIsVisibleModal }) => {
                     <TextField
                       label=""
                       id="standard-size-normal"
-                      placeholder="enter your comment"
+                      placeholder="enter comment"
                       variant="standard"
                       value={commentData}
                       onChange={handlerInputComment}
