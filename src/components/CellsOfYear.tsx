@@ -11,13 +11,13 @@ export const CellsOfYear: React.FC<Props> = ({ year, toggleIsVisibleModal }) => 
   return (
     <>
       <TableCell component="th" scope="row" align="center" onClick={toggleIsVisibleModal}>
-        {year && year.XX.value}
+        {(year && year.XX.value) || '-'}
       </TableCell>
       <TableCell component="th" scope="row" align="center" onClick={toggleIsVisibleModal}>
-        {year && year.YY.value}
+        {(year && year.YY.value) || '-'}
       </TableCell>
       <TableCell component="th" scope="row" align="center" onClick={toggleIsVisibleModal}>
-        {year && year.ZZ.value}
+        {(year && year.ZZ.value) || '-'}
       </TableCell>
     </>
   );

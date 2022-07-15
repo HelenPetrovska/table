@@ -9,8 +9,6 @@ import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-import { support } from '../api';
-
 import './supportTable.scss';
 
 function formatDate(date: any) {
@@ -41,13 +39,18 @@ function formatDateReverse(date: string) {
 
 type Props = {
   toggleIsVisibleModal: () => void;
+  supportArr: supportItem[];
+  setSupportArr: React.Dispatch<React.SetStateAction<supportItem[]>>;
 };
 
-export const SupportTable: React.FC<Props> = ({ toggleIsVisibleModal }) => {
-  const [supportArr, setSupportArr] = useState<supportItem[]>(support);
+export const SupportTable: React.FC<Props> = ({
+  toggleIsVisibleModal,
+  supportArr,
+  setSupportArr,
+}) => {
   const [numberData, setNumberData] = useState<number | string>('');
-  const [userData, setUserData] = useState('');
-  const [commentData, setCommentData] = useState('');
+  const [userData, setUserData] = useState('Roman');
+  const [commentData, setCommentData] = useState('any');
 
   const today = new Date();
   const now = formatDate(today);
@@ -74,11 +77,11 @@ export const SupportTable: React.FC<Props> = ({ toggleIsVisibleModal }) => {
     const date = formatDateReverse(dateData);
 
     const newSupport = {
-      id: support[support.length - 1].id + 1,
-      num: numberData || '',
+      id: supportArr[supportArr.length - 1].id + 1,
+      num: numberData || '-',
       date: date || now,
-      user: userData || 'Roman',
-      comment: commentData || 'any',
+      user: userData,
+      comment: commentData,
     };
 
     setSupportArr(currentSupport => (
@@ -88,8 +91,8 @@ export const SupportTable: React.FC<Props> = ({ toggleIsVisibleModal }) => {
     ));
     setNumberData('');
     setDateData(now);
-    setUserData('');
-    setCommentData('');
+    setUserData('Roman');
+    setCommentData('any');
   };
 
   return (

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-
-import './App.scss';
 import { MainTable } from './components/MainTable';
 import { BasicModal } from './components/BasicModal';
 
+import './App.scss';
+
+import { support } from './api';
+
 export const App: React.FC = () => {
   const [isVisibleModal, setIsVisibleSupprot] = useState(false);
+  const [supportArr, setSupportArr] = useState<supportItem[]>(support);
 
   const toggleIsVisibleModal = () => {
     setIsVisibleSupprot(!isVisibleModal);
@@ -21,6 +24,8 @@ export const App: React.FC = () => {
           <BasicModal
             toggleIsVisibleModal={toggleIsVisibleModal}
             isVisibleModal={isVisibleModal}
+            supportArr={supportArr}
+            setSupportArr={setSupportArr}
           />
         )}
     </div>

@@ -18,9 +18,16 @@ const style = {
 type Props = {
   toggleIsVisibleModal: () => void;
   isVisibleModal: boolean;
+  supportArr: supportItem[];
+  setSupportArr: React.Dispatch<React.SetStateAction<supportItem[]>>;
 };
 
-export const BasicModal: React.FC<Props> = ({ toggleIsVisibleModal, isVisibleModal }) => {
+export const BasicModal: React.FC<Props> = ({
+  toggleIsVisibleModal,
+  isVisibleModal,
+  supportArr,
+  setSupportArr,
+}) => {
   return (
     <div>
       <Modal
@@ -32,6 +39,8 @@ export const BasicModal: React.FC<Props> = ({ toggleIsVisibleModal, isVisibleMod
         <Box sx={style}>
           <SupportTable
             toggleIsVisibleModal={toggleIsVisibleModal}
+            supportArr={supportArr}
+            setSupportArr={setSupportArr}
           />
         </Box>
       </Modal>
